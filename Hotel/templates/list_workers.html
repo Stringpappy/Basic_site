@@ -1,0 +1,14 @@
+i{% extends "base.html" %}
+
+{% block title %}List of workers{% endblock %}
+
+{% block content %}
+
+    <h2>Workers</h2>
+    <ul>
+        {% for worker in workers %}
+            <li>{{ worker[0] }}: {{ worker[1] }} {{ worker[2] }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

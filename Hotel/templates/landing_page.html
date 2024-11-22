@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to MySite{% endblock %}
+
+{% block content %}
+<div class="hero text-center py-5">
+    <h1>Welcome to MySite</h1>
+    <p>Your one-stop solution for everything you need!</p>
+    <div class="search-bar">
+        <form action="{{ url_for('search') }}" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search..." name="query" required>
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}list of woekers{% endblock %}
+
+{% block content %}
+    <h2>List of Workers</h2>
+    <ol>
+        {% for worker in workers %}
+            <li>{{ worker[0] }}: {{ worker[1] }} {{ worker[2] }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

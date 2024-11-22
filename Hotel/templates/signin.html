@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Sign In</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="email_or_phone" class="form-label">Email or Phone Number</label>
+            <input type="text" class="form-control" id="email_or_phone" name="email_or_phone" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign In</button>
+    </form>
+    <div class="text-center mt-3">
+        <p>Don't have an account? <a href="{{ url_for('customer_signup') }}">Sign Up</a></p>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger mt-3" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
