@@ -7,20 +7,25 @@
 </head>
 <body>
     <h1>Book a Room</h1>
-    <form action="/submit_booking" method="POST">
-        <input type="hidden" name="room_id" value="{{ request.args.get('room_id') }}">
+    <form action="{{ url_for('submit_booking') }}" method="POST">
+        <input type="hidden" name="room_id" value="{{ room_id }}">
         
-        <label for="check_in">Check-in Date:</label><br>
-        <input type="date" id="check_in" name="check_in" required><br><br>
-        
-        <label for="check_out">Check-out Date:</label><br>
-        <input type="date" id="check_out" name="check_out" required><br><br>
-        
-        <label for="num_rooms">Number of Rooms Needed:</label><br>
-        <input type="number" id="num_rooms" name="num_rooms" min="1" required><br><br>
-        
-        <button type="submit" style="padding:10px 20px; background-color:green; color:white; border:none; border-radius:5px;">Submit</button>
+        <label for="customer_name">Name:</label>
+        <input type="text" name="customer_name" required><br><br>
+
+        <label for="customer_email">Email:</label>
+        <input type="email" name="customer_email" required><br><br>
+
+        <label for="check_in">Check-in Date:</label>
+        <input type="date" name="check_in" required><br><br>
+
+        <label for="check_out">Check-out Date:</label>
+        <input type="date" name="check_out" required><br><br>
+
+        <label for="num_rooms">Number of Rooms:</label>
+        <input type="number" name="num_rooms" min="1" required><br><br>
+
+        <button type="submit">Submit Booking</button>
     </form>
-    <a href="standard_room.html">Back to Standard Room</a>
 </body>
 </html>

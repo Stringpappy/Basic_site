@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime, timedelta
+import sqlite3
+import uuid
 
 app = Flask(__name__)
 
@@ -88,6 +90,11 @@ def check_room_availability():
                 room['is_available'] = True
                 del room_bookings[room_id]  # Remove the booking from the dictionary
 
+@app.route('/book_session', methods=['GET'])
+def book_session():
+    room_id = request.args.get('room_id')  # Get room ID from the query parameter
+    # Render a booking form for the selected room
+    return render_template('book_session.html', room_id=room_id)
 
 
 
@@ -157,6 +164,8 @@ def submit_booking():
 @app.route('/payment')
 def payment():
     booking_id = request.args.get('booking_id')
+    total_amount = request.args.get('total_amount')
+
     return render_template('payment.html', booking_id=booking_id)
 
 # Route to process payment
