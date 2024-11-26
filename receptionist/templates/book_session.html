@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Room</title>
+</head>
+<body>
+    <h1>Book a Room</h1>
+    <form action="/submit_booking" method="POST">
+        <input type="hidden" name="room_id" value="{{ request.args.get('room_id') }}">
+        
+        <label for="check_in">Check-in Date:</label><br>
+        <input type="date" id="check_in" name="check_in" required><br><br>
+        
+        <label for="check_out">Check-out Date:</label><br>
+        <input type="date" id="check_out" name="check_out" required><br><br>
+        
+        <label for="num_rooms">Number of Rooms Needed:</label><br>
+        <input type="number" id="num_rooms" name="num_rooms" min="1" required><br><br>
+        
+        <button type="submit" style="padding:10px 20px; background-color:green; color:white; border:none; border-radius:5px;">Submit</button>
+    </form>
+    <a href="standard_room.html">Back to Standard Room</a>
+</body>
+</html>
