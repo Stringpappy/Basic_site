@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 15px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Resort</h1>
+        <ul>
+            <li><a href="{{url_for('index')}}">Accommodations Services</a></li>
+            <li><a href="dining_beverages.html">Dining and Beverages</a></li>
+            <li><a href="entertainment.html">Entertainment</a></li>
+            <li><a href="recreational_activities.html">Recreational Activities</a></li>
+            <li><a href="excursions_tour.html">Excursions and Tour</a></li>
+            <li><a href="events_preferences.html">Events and Preferences</a></li>
+            <li><a href="transportation_services.html">Transportation Services</a></li>
+            <li><a href="family_kids_activities.html">Family and Kids Activities</a></li>
+            <li><a href="business_services.html">Business Services</a></li>
+            <li><a href="personalized_services.html">Personalized Services</a></li>
+        </ul>
+    </div>
+</body>
+</html>

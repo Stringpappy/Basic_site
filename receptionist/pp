@@ -1,0 +1,47 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Data for rooms
+is_available = True
+standard_single_room = [
+    {"name": "Single Room", "price": 100, "id": 1, "is_available": is_available},
+    {"name": "Double Room", "price": 150, "id": 2, "is_available": is_available},
+    {"name": "Three Bed", "price": 200, "id": 3, "is_available": is_available},
+     {"name": "Single Room", "price": 250, "id": 4, "is_available": is_available},
+    {"name": "Double Room", "price": 350, "id": 5, "is_available": is_available},
+    {"name": "Three Bed", "price": 500, "id": 6, "is_available": is_available}
+]
+
+luxury_single_room = [
+    {"name": "Single Room", "price": 250, "id": 4, "is_available": is_available},
+    {"name": "Double Room", "price": 350, "id": 5, "is_available": is_available},
+    {"name": "Three Bed", "price": 500, "id": 6, "is_available": is_available}
+]
+
+# Room categories data
+room_categories = [
+    {"category": "Standard Room", "rooms": standard_single_room},
+    {"category": "Luxury Room", "rooms": luxury_single_room}
+]
+@app.route('/')
+def landpage():
+    return render_template('landpage.html')
+
+@app.route('/index.html')
+def index():
+    return render_template('index.html', room_categories=room_categories)
+
+@app.route('/standard_room')
+def standard_room():
+    # Find the "Standard Room" category
+    standard_room_category = next(
+        (category for category in room_categories if category['category'] == 'Standard Room'),
+        None
+    )
+    if standard_room_category:
+        return render_template('standard_html.html', rooms=standard_room_category['rooms'])
+    return "Standard Room category not found", 404
+
+if __name__ == '__main__':
+    app.run(debug=True)

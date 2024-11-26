@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Make a Payment</h1>
+        <p>Click the button below to proceed with your payment.</p>
+        <button id="checkout-button">Checkout</button>
+    </div>
+    <script>
+        const stripe = Stripe('{{ public_key }}');
+        document.getElementById('checkout-button').addEventListener('click', () => {
+            fetch('/create-checkout-session', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => stripe.redirectToCheckout({ sessionId: data.id }))
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* General Reset */
+body, h1, h2, h3, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.main-header {
+    background-color: #ff3e6c;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.search-btn {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: #ff3e6c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.search-btn:hover {
+    background-color: #ffe1ea;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.signin-btn {
+    background-color: white;
+    color: #ff3e6c;
+    font-weight: bold;
+}
+
+.signin-btn:hover {
+    background-color: #ffe1ea;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-btn {
+    background-color: #ff758c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #ff758c;
+    color: white;
+}
+
+/* Cart */
+.cart {
+    position: relative;
+}
+
+.cart-btn {
+    background-color: #fff;
+    color: #ff3e6c;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    padding: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.cart-content ul {
+    list-style: none;
+}
+
+.cart-content li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #ff3e6c;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}

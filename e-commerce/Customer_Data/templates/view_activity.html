@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user_name }}'s Activities</title>
+</head>
+<body>
+    <h1>Activity Log for {{ user_name }}</h1>
+
+    <h2>Activities</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Payment</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for act in activities %}
+                <tr>
+                    <td>{{ act.activity }}</td>
+                    <td>{{ act.payment }}</td>
+                    <td>{{ act.date }}</td>
+                    <td>{{ act.time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Activity Summary</h2>
+    <ul>
+        {% for activity_name, count in activity_summary.items() %}
+            <li>{{ activity_name }}: {{ count }} times</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/customers">Back to Customer List</a>
+</body>
+</html>

@@ -13,7 +13,7 @@ def init_db():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 first_name TEXT NOT NULL,
                 second_name TEXT NOT NULL,
-                UNIQUE(profession) ON CONFLICT IGNORE
+                profession TEXT NOT NULL
             )
         """)
         cursor.execute("""
@@ -24,22 +24,6 @@ def init_db():
             )
         """)
 
-@app.route('/admin', methods=['GET'])
-def admin():
-    with sqlite3.connect("hotel.db") as conn:
-        cursor = conn.cursor()
-        cursor.execute("SELECT profession, first_name, second_name, id FROM workers")
-        workers = cursor.fetchall()
-    return render_template('admin.html', workers=workers)
-
-
-@app.route('/remove_worker', methods=['POST'])
-def remove_worker():
-    worker_id = request.form['worker_id']
-    with sqlite3.connect("hotel.db") as conn:
-        cursor = conn.cursor()
-        cursor.execute("DELETE FROM workers WHERE id = ?", (worker_id,))
-    return redirect('/admin')
 
 @app.route('/register_worker', methods=['GET', 'POST'])
 def register_worker():
@@ -48,20 +32,9 @@ def register_worker():
             first_name = request.form['first_name']
             second_name = request.form['second_name']
             profession = request.form['profession']
-            
             if not profession:  # Validate the profession field
                 return "Please select a valid profession.", 400
 
-            if profession.lower() == "manager":
-                # Check if a manager already exists
-                with sqlite3.connect("hotel.db") as conn:
-                    cursor = conn.cursor()
-                    cursor.execute("SELECT COUNT(*) FROM workers WHERE profession = 'manager'")
-                    manager_count = cursor.fetchone()[0]
-                    if manager_count > 0:
-                        return "A manager already exists. Only one manager is allowed.", 400
-
-            # Insert the worker into the database
             with sqlite3.connect("hotel.db") as conn:
                 cursor = conn.cursor()
                 cursor.execute(
@@ -72,7 +45,6 @@ def register_worker():
         except KeyError as e:
             return f"Missing required field: {e}", 400
     return render_template('worker_signup.html')
-
 
 
 # Route for the customer signup page

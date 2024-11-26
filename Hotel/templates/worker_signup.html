@@ -52,7 +52,7 @@
 
     <!-- Worker Signup Page -->
     <div id="worker-signup">
-        <form action="/submit-worker-registration" method="post">
+        <form action="/register_worker" method="post">
             <h2>Worker Signup</h2>
             <label for="first-name">First Name:</label>
             <input type="text" id="first-name" name="first_name" required>
@@ -70,7 +70,7 @@
             <input type="password" id="password" name="password" required>
             
             <label for="phone-number">Phone Number:</label>
-            <input type="tel" id="phone-number" name="phone_number" pattern="[0-9]{10}" required>
+            <input type="tel" id="phone-number" name="phone_number"  required>
             
             <label for="profession">Profession:</label>
             <select id="profession" name="profession" required>
@@ -83,7 +83,7 @@
             
             <button type="submit">Register as Worker</button>
             <div class="toggle-link">
-                <a href="#customer-signup">Not a worker? Sign up as a customer</a>
+		    <a href="{{url_for('customer_signup')}}">Not a worker? Sign up as a customer</a>
             </div>
         </form>
     </div>
